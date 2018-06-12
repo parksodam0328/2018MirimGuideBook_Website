@@ -1,0 +1,495 @@
+
+function checkSubjectInput(){
+   var form = document.form1;
+   var stringRegx = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+   var num =/[0-9]/; //숫자
+  if(!form.grade.value) {
+     alert("학년을 입력하세요!");
+	 form.grade.focus();
+	 return;
+  }
+  for(var i=0;i<form.grade.value.length;i++){
+  if(form.grade.value.charAt(i)!=""&&num.test(form.grade.value.charAt(i))==false){
+    alert("학년은 숫자이어야 합니다!");
+	form.grade.focus();
+	return;
+  }
+  }
+  if(form.grade.value<1||form.grade.value>3){
+	alert("학년 범위에서 벗어났습니다");
+	form.grade.focus();
+	return;
+  }
+  if(!form.major.value) {
+    alert("학과를 입력하세요!");
+	form.major.focus();
+	return;
+  }
+  if(stringRegx.test(form.major.value)==true) { 
+	alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	form.major.focus();
+	return;
+  } 
+  if(!form.name_sub.value) {
+    alert("과목을 입력하세요!");
+	form.name_sub.focus();
+	return;
+  }
+  if(stringRegx.test(form.name_sub.value)==true) { 
+	 alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	 form.name_sub.focus();
+	 return ;
+  } 
+  if(!form.intro_sub.value) {
+     alert("과목 소개를 입력해주세요!");
+	 form.intro_sub.focus();
+	 return ;
+  }
+  if(form.intro_sub.value.length>100) {
+     alert("과목 소개는 100자를 넘을 수 없습니다!");
+	 form.intro_sub.focus();
+	 return ;
+  }
+  if(!form.teacher.value) {
+     alert("선생님 성함을 입력하세요!");
+	 form.teacher.focus();
+	 return ;
+  }
+   if(stringRegx.test(form.teacher.value)==true) { 
+	 alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	 form.teacher.focus();
+	 return ;
+  } 
+   if(stringRegx.test(form.room.value)==true) { 
+	 alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	 form.room.focus();
+	 return ;
+  } 
+  form.submit();
+  }
+
+function checkRuleInput(){
+   var form = document.form1;
+ var num =/[0-9]/; //숫자
+  if(!form.number.value) {
+     alert("번호를 입력하세요!");
+	 form.number.focus();
+	 return;
+  }
+  if(!IsNumber(form.number.name)){
+    alert("번호는 숫자이어야 합니다!");
+	form.number.focus();
+	return;
+  }
+  if(!form.division_number.value) {
+    alert("구분번호를 입력하세요!");
+	form.division_number.focus();
+	return;
+  }
+  if(!IsNumber(form.division_number.name)){
+    alert("구분번호는 숫자이어야 합니다!");
+	form.division_number.focus();
+	return;
+  }
+  if(form.division_number.value<1||form.division_number.value>3){
+	alert("구분 번호 범위(1 ~ 3)에서 벗어났습니다");
+	form.division_number.focus();
+	return;
+  }
+  if(!form.content.value) {
+     alert("규정 내용을 입력해주세요!");
+	 form.content.focus();
+	 return ;
+  }
+  form.submit();
+  }
+
+function checkClubInput(){
+   var form = document.form1;
+   var stringRegx = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+    var num =/[0-9]/; //숫자
+
+  if(!form.number.value) {
+     alert("구분번호를 입력하세요!");
+	 form.number.focus();
+	 return;
+  }
+  for(var i=0;i<form.number.value.length;i++){
+  if(form.number.value.charAt(i)!=""&&num.test(form.number.value.charAt(i))==false){
+    alert("구분번호는 숫자이어야 합니다!");
+	form.number.focus();
+	return;
+  }
+  }
+  if(form.number.value<1||form.number.value>3){
+	alert("구분 번호 범위(1 ~ 3)에서 벗어났습니다");
+	form.number.focus();
+	return;
+  }
+  if(!form.club_name.value) {
+     alert("동아리명을 입력해주세요!");
+	 form.club_name.focus();
+	 return ;
+  }
+  if(stringRegx.test(form.club_name.value)==true) { 
+	 alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	 form.club_name.focus();
+	 return ;
+  }
+  if(!form.club_room.value) {
+     alert("동아리실을 입력해주세요!");
+	 form.club_room.focus();
+	 return ;
+  }
+  if(stringRegx.test(form.club_room.value)==true) { 
+	 alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	 form.club_room.focus();
+	 return ;
+  }
+  if(!form.teacher.value) {
+     alert("담당교사를 입력해주세요!");
+	 form.teacher.focus();
+	 return ;
+  }
+  if(stringRegx.test(form.teacher.value)==true) { 
+	 alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	 form.teacher.focus();
+	 return ;
+  }
+  if(!form.intro.value) {
+     alert("소개를 입력해주세요!");
+	 form.intro.focus();
+	 return ;
+  }
+  if(form.intro.value.length>200) {
+     alert("소개는 200자를 넘을 수 없습니다!");
+	 form.intro.focus();
+	 return ;
+  }
+  form.submit();
+  }
+
+
+function checkLocationInput1(){
+   var form = document.form1;
+   var stringRegx = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+
+  if(!form.address.value) {
+     alert("주소를 입력하세요!");
+	 form.address.focus();
+	 return;
+  }
+  if(stringRegx.test(form.address.value)==true) { 
+	alert("'()'를 제외한 다른 특수문자들은 제외해주세요!");
+	form.address.focus();
+	return;
+  }
+  if(!form.subway.value) {
+     alert("대중교통(지하철)을 입력하세요!");
+	 form.subway.focus();
+	 return;
+  }
+ if(!form.bus.value) {
+     alert("대중교통(버스)을 입력하세요!");
+	 form.bus.focus();
+	 return;
+  } 
+  form.submit();
+  }
+
+  function checkLocationInput2(){
+   var form = document.form2;
+   var stringRegx = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+     var num =/[0-9]/; //숫자
+
+  if(!form.school_office.value) {
+     alert("교무실 이름을 입력하세요!");
+	 form.school_office.focus();
+	 return;
+  }
+  if(stringRegx.test(form.school_office.value)==true) { 
+	alert("'()'를 제외한 다른 특수문자들은 제외해주세요!");
+	form.school_office.focus();
+	return;
+  } 
+  if(!form.floor.value) {
+     alert("층을 입력하세요!");
+	 form.floor.focus();
+	 return;
+  }
+  for(var i=0;i<form.floor.value.length;i++){
+  if(form.floor.value.charAt(i)!=""&&num.test(form.floor.value.charAt(i))==false){
+    alert("층은 숫자이어야 합니다!");
+	form.floor.focus();
+	return;
+  }
+  }
+  if(form.floor.value<1||form.floor.value>2){
+	alert("층 범위(1 ~ 4)에서 벗어났습니다");
+	form.floor.focus();
+	return;
+  }
+   if(!form.teacher.value) {
+     alert("선생님 성함들을 입력하세요!");
+	 form.teacher.focus();
+	 return;
+  }
+   if(stringRegx.test(form.teacher.value)==true) { 
+	 alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	 form.teacher.focus();
+	 return ;
+  } 
+   if(!form.intro.value) {
+     alert("소개를 입력하세요!");
+	 form.intro.focus();
+	 return;
+  }
+  form.submit();
+  }
+
+function checkEntranceInput1(){
+   var form = document.form1;
+   var stringRegx = /[`~!@#$%^&*|\\\'\";:\/]/gi;
+
+  if(!form.major.value) {
+     alert("학과를 입력하세요!");
+	 form.major.focus();
+	 return;
+  }
+  if(stringRegx.test(form.major.value)==true) { 
+	alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	form.major.focus();
+	return;
+  } 
+  if(!form.major_intro.value) {
+     alert("학과소개를 입력하세요!");
+	 form.major.focus();
+	 return;
+  }
+   if(form.major_intro.value.length>500) {
+     alert("학과소개는 500자를 넘을 수 없습니다!");
+	 form.major_intro.focus();
+	 return ;
+  }
+  form.submit();
+}
+function checkEntranceInput2(){
+	 var form = document.form2;
+   var stringRegx = /[`~!@#$%^&*|\\\'\";:\/]/gi;
+
+   if(!form.date.value) {
+     alert("날짜를 입력하세요!");
+	 form.date.focus();
+	 return;
+  }
+  if(stringRegx.test(form.date.value)==true) { 
+	alert("공백을 제외한 특수문자는 제외해주세요!");
+	form.date.focus();
+	return;
+  } 
+  if(!form.room.value) {
+     alert("장소를 입력하세요!");
+	 form.room.focus();
+	 return;
+  }
+  if(stringRegx.test(form.room.value)==true) { 
+	alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	form.room.focus();
+	return;
+  }
+  if(!form.apply.value) {
+     alert("신청방법 입력하세요!");
+	 form.apply.focus();
+	 return;
+  }
+  form.submit();
+  }
+
+function checkEntranceInput3(){
+	 var form = document.form3;
+   var stringRegx = /[`~!@#$%^&*|\\\'\";:\/]/gi;
+   var num =/[0-9]/; //숫자
+if(!form.number.value) {
+     alert("번호를 입력하세요!");
+	 form.number.focus();
+	 return;
+  }
+  
+  for(var i=0;i<form.number.value.length;i++){
+  if(form.number.value.charAt(i)!=""&&num.test(form.number.value.charAt(i))==false){
+    alert("번호는 숫자이어야 합니다!");
+	form.number.focus();
+	return;
+  }
+  }
+  if(!form.title.value) {
+     alert("제목을 입력하세요!");
+	 form.title.focus();
+	 return;
+  }
+   if(stringRegx.test(form.title.value)==true) { 
+	alert("'?'을 제외한 특수문자는 제외해주세요!");
+	form.title.focus();
+	return;
+  } 
+  if(!form.content.value) {
+     alert("내용을 입력하세요!");
+	 form.content.focus();
+	 return;
+  }
+   if(form.content.value.length>500) {
+     alert("내용은 500자를 넘을 수 없습니다!");
+	 form.content.focus();
+	 return ;
+  }
+  form.submit();
+}
+function checkEmploymentInput1(){
+   var form = document.form1;
+   var stringRegx = /[`~!@#$^&*+()=-_<>[]{}|\\\'\";:\/?]/gi;
+    var num =/[0-9]/; //숫자
+   if(!form.year.value){
+    alert("년도를 입력해주세요!");
+	form.year.focus();
+	return;
+  }
+ for(var i=0;i<form.year.value.length;i++){
+  if(form.year.value.charAt(i)!=""&&num.test(form.year.value.charAt(i))==false){
+    alert("년도는 숫자이어야 합니다!");
+	form.year.focus();
+	return;
+  }
+  }
+  if(!form.employ_now.value) { 
+	alert("취업현황을 입력해주세요!");
+	form.employ_now.focus();
+	return;
+  } 
+  if(stringRegx.test(form.employ_now.value)==true) { 
+	alert("'%' 외에는 특수문자를 제외해주세요!");
+	form.employ_now.focus();
+	return;
+  } 
+  form.submit();
+  }
+  function checkEmploymentInput2(){
+   var form = document.form2;
+   var stringRegx = /[`~!@#$^&*+()=-_<>[]{}|\\\'\";:\/?]/gi;
+   var expUrl = /^http[s]?\:\/\//i;
+	if(!form.company_name.value) { 
+	alert("회사명을 입력해주세요!");
+	form.company_name.focus();
+	return;
+  } 
+  if(stringRegx.test(form.company_name.value)==true) { 
+	alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	form.company_name.focus();
+	return;
+  } 
+   if(!form.field.value) { 
+	 alert("분야를 입력해주세요!");
+	 form.field.focus();
+	 return ;
+  } 
+   if(stringRegx.test(form.field.value)==true) { 
+	 alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	 form.field.focus();
+	 return ;
+  } 
+  if(!form.website.value) {
+     alert("홈페이지 주소를 입력해주세요! 없으면 없음이라고 입력해주세요!");
+     form.website.focus();
+     return;
+  }
+  if( !form.website.value=="없음" && expUrl.test(form.website.value)!=true) {
+     alert("홈페이지 주소가 올바르지 않습니다. 다시 입력해주세요!");
+     form.website.focus();
+     return;
+  }
+  form.submit();
+  }
+
+function checkExperienceInput1(){
+   var form = document.form1;
+   var stringRegx = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+
+  if(!form.major.value) {
+     alert("학과 계열를 입력하세요!");
+	 form.major.focus();
+	 return;
+  }
+  if(!form.word.value) {
+     alert("용어를 입력하세요!");
+	 form.word.focus();
+	 return;
+  }
+  if(stringRegx.test(form.word.value)==true) { 
+	 alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	 form.word.focus();
+	 return ;
+  }
+  if(!form.means.value) {
+     alert("용어의 뜻을 입력하세요!");
+	 form.means.focus();
+	 return;
+  }
+  if(stringRegx.test(form.means.value)==true) { 
+	 alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	 form.means.focus();
+	 return ;
+  }
+  form.submit();
+  }
+  function checkExperienceInput2(){
+   var form = document.form2;
+   var stringRegx = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+
+  if(!form.major.value) {
+     alert("학과 계열를 입력하세요!");
+	 form.major.focus();
+	 return;
+  }
+  if(!form.coding.value) {
+     alert("코드를 입력하세요!");
+	 form.coding.focus();
+	 return;
+  }
+  if(!form.result.value) {
+     alert("코드의 결과를 입력하세요!");
+	 form.result.focus();
+	 return;
+  }
+  form.submit();
+  }
+
+  function checkEventInput(){
+   var form = document.form1;
+   var stringRegx = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+
+  if(!form.event_name.value) {
+     alert("행사명을 입력하세요!");
+	 form.event_name.focus();
+	 return;
+  }
+  if(stringRegx.test(form.event_name.value)==true) { 
+	 alert("특수문자가 포함되어있습니다. 특수문자를 제외해주세요!");
+	 form.event_name.focus();
+	 return ;
+  }
+  if(!form.date.value) {
+     alert("날짜를 입력하세요!");
+	 form.date.focus();
+	 return;
+  }
+  if(!form.content.value) {
+     alert("내용을 입력하세요!");
+	 form.content.focus();
+	 return;
+  }
+  if(form.content.value.length>500) {
+     alert("내용은 500자를 넘을 수 없습니다!");
+	 form.content.focus();
+	 return ;
+  }
+  form.submit();
+  }
